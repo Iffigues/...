@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-will-dep
+  labels:
+    app: app-will-dep
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      any-name: app-will-dep
+  template:
+    metadata:
+      labels:
+        any-name: app-will-dep
+    spec:
+      containers:
+      - name: app-will
+        image: wil42/playground:v1
+        ports:
+        - containerPort: 8888
